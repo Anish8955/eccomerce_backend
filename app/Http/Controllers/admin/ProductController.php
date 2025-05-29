@@ -329,5 +329,14 @@ class ProductController extends Controller
 
     }
 
+    public function getTotalActiveProducts()
+{
+    $totalActive = Product::where('status', 1)->count();
+
+    return response()->json([
+        'total_active' => $totalActive
+    ]);
+}
+
 
 }
